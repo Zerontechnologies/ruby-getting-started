@@ -13,9 +13,9 @@ workflows:
           #requires:
           #  - hold:
           #      type: approval
-          filters:
-            branches:
-              only: sequential-branch-filter
+          #filters:
+          #  branches:
+          #    only: sequential-branch-filter
               
 
 jobs:
