@@ -6,11 +6,15 @@ orbs:
 workflows:
   heroku_deploy:
     jobs:
-      - build
-      - hold:
-          type: approval
-          requires:
-            - heroku/deploy-via-git
+      - heroku/deploy-via-git
+#workflows:
+#  heroku_deploy:
+#    jobs:
+#      - build
+#      - hold:
+#          type: approval
+#          requires:
+#            - heroku/deploy-via-git
           #requires:
           #  - hold
           #filters:
