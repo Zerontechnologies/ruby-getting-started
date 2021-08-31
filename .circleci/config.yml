@@ -11,7 +11,7 @@ workflows:
         type: approval
         requires:
           - build
-      - heroku/deploy-via-git
+      - heroku/deploy-via-git:
           requires:
             - build
           filters:
