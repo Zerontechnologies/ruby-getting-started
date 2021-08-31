@@ -57,8 +57,13 @@ workflows:
   heroku_deploy:
     jobs:
       - build
-      - deploy
+      - deploy:
+          requires:
+            - build
       - hold:
           type: approval
           requires:
             - deploy
+      - deploy:
+          requires:
+            - hold
