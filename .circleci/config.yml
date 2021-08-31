@@ -2,25 +2,6 @@ version: 2.1
 orbs:
   heroku: circleci/heroku@0.0.10
   ruby: circleci/ruby@0.1.2 
-
-
-          #type: approval
-          #requires:
-          #  - heroku_deploy
-      #- heroku/deploy-via-git
-#workflows:
-#  heroku_deploy:
-#    jobs:
-#      - build
-#      - hold:
-#          type: approval
-#          requires:
-#            - heroku/deploy-via-git
-          #requires:
-          #  - hold
-          #filters:
-          #  branches:
-          #    only: sequential-branch-filter
               
 
 jobs:
@@ -48,10 +29,6 @@ jobs:
     steps:
       - checkout
       - heroku/deploy-via-git
-      #executor: heroku/default
-      #steps:
-      #  - checkout
-      #  - heroku/deploy-via-git
 
 workflows:
   heroku_deploy:
