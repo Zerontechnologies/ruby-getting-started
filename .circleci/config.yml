@@ -7,10 +7,6 @@ workflows:
   heroku_deploy:
     jobs:
       - build
-      - request-testing:
-        type: approval
-        requires:
-          - build
       - heroku/deploy-via-git:
           requires:
             - build
