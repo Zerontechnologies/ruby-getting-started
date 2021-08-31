@@ -3,14 +3,7 @@ orbs:
   heroku: circleci/heroku@0.0.10
   ruby: circleci/ruby@0.1.2 
 
-workflows:
-  heroku_deploy:
-    jobs:
-      - build
-      - hold:
-          type: approval
-          requires:
-            - deploy
+
           #type: approval
           #requires:
           #  - heroku_deploy
@@ -59,3 +52,12 @@ jobs:
       #steps:
       #  - checkout
       #  - heroku/deploy-via-git
+
+workflows:
+  heroku_deploy:
+    jobs:
+      - build
+      - hold:
+          type: approval
+          requires:
+            - deploy
