@@ -7,13 +7,16 @@ workflows:
   heroku_deploy:
     jobs:
       - build
+      - hold:
+          type: approval
       - heroku/deploy-via-git:
           requires:
-            - build
+            - hold:
+                type: approval
           filters:
             branches:
               only: sequential-branch-filter
-              #j
+              
 
 jobs:
   build:
