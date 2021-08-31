@@ -9,10 +9,10 @@ workflows:
       - build
       - hold:
           type: approval
-      - heroku/deploy-via-git:
-          requires:
-            - hold:
-                type: approval
+      - heroku/deploy-via-git
+          #requires:
+          #  - hold:
+          #      type: approval
           filters:
             branches:
               only: sequential-branch-filter
