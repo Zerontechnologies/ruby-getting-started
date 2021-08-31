@@ -8,8 +8,8 @@ workflows:
     jobs:
       - build
       - deploy
-          #requires:
-          #  - hold
+          requires:
+            - hold
           #type: approval
           #requires:
           #  - heroku_deploy
