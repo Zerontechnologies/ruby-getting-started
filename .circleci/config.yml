@@ -9,7 +9,7 @@ workflows:
       - build
       - deploy:
           requires:
-            - hold:
+            - hold
           #type: approval
           #requires:
           #  - heroku_deploy
