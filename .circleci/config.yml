@@ -6,7 +6,14 @@ orbs:
 workflows:
   heroku_deploy:
     jobs:
-      - heroku/deploy-via-git
+      - build
+      - deploy:
+          requires:
+            - hold:
+          #type: approval
+          #requires:
+          #  - heroku_deploy
+      #- heroku/deploy-via-git
 #workflows:
 #  heroku_deploy:
 #    jobs:
@@ -40,3 +47,10 @@ jobs:
           name: Which bundler?
           command: bundle -v
       - ruby/bundle-install
+
+
+    deploy:
+      executor: heroku/default
+      steps:
+        - checkout
+        - heroku/deploy-via-git
